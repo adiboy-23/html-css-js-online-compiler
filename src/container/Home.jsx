@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { HiChevronDoubleLeft } from "react-icons/hi2";
+import { MdHome } from "react-icons/md";
+import { FaSearchengin } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Logo } from "../assets";
 
 const Home = () => {
   const [isSideMenu, setIsSideMenu] = useState(false);
+  const [user, setuser] = useState(null);
   return (
     <>
       <div
@@ -35,6 +38,24 @@ const Home = () => {
               </p>
             </div>
           </Link>
+          {user && (
+            <Link
+              to={"/home/projects"}
+              className="flex items-center justify-center gap-6"
+            >
+              <MdHome className="text-primaryText text-xl" />
+              <p className="text-lg text-primaryText">Home</p>
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className="flex-1 min-h-screen max-h-screen overflow-y-scroll h-full flex flex-col items-start justify-start px-4 md:px-12 py-4 md:py-12 ">
+        <div className="w-full flex items-center justify-between gap-3">
+          <div className="bg-secondary w-full px-4 py-3 rounded-md flex items-center justify-center gap-3">
+            <FaSearchengin className="text-2xl text-primaryText"/>
+            <input type="text" className="flex-1 px-4 py-1text-xl bg-transparent outline-none border-nonetext-primaryText placeholder:text-gray-600" placeholder="Search..."></input>
+
+          </div>
         </div>
       </div>
     </>
